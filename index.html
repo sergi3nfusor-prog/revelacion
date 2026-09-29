@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revelación de género · Luis y Laura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--crema:#F7F0E6;--beige:#E9D8C2;--cafe:#6B4A3A;--dorado:#B8925A;--blanco:#FFFDF9}
+*{box-sizing:border-box;margin:0}
+body{background:var(--crema);color:var(--cafe);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;line-height:1.6;text-align:center;
+background-image:radial-gradient(circle at 20% 10%,#fff8ee 0,transparent 45%),radial-gradient(circle at 85% 60%,var(--beige) 0,transparent 40%)}
+main{max-width:520px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+h1,h2{font-family:'Pinyon Script',cursive;font-weight:400;color:var(--cafe);line-height:1.15}
+h1{font-size:3.2rem;margin:1.5rem 0 .5rem}
+h2{font-size:2.4rem;margin-bottom:.75rem}
+p{margin:0 auto 1.25rem;max-width:34ch}
+section{margin-top:3rem}
+.oro{width:90px;height:1px;background:var(--dorado);margin:1.75rem auto;position:relative}
+.oro::after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);background:var(--crema);color:var(--dorado);padding:0 .6rem;font-size:.9rem}
+.osito{width:min(100%,360px);border-radius:180px 180px 24px 24px;border:1px solid var(--dorado);padding:8px;background:var(--blanco);display:block;margin:0 auto}
+.hero{animation:entra 1.4s ease both}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eco{width:100%;max-width:340px;border:1px solid var(--dorado);padding:8px;background:var(--blanco);border-radius:6px;display:block;margin:0 auto 1.5rem}
+#cuenta{display:flex;justify-content:center;gap:.75rem;margin:1rem 0}
+#cuenta div{min-width:64px;padding:.5rem .25rem;border:1px solid var(--dorado);border-radius:6px;background:var(--blanco)}
+#cuenta b{display:block;font-size:1.7rem;font-weight:600}
+#cuenta span{font-size:.9rem}
+.datos p{margin-bottom:.4rem}
+.btn{display:inline-block;margin-top:1rem;padding:.7rem 1.8rem;border:1px solid var(--dorado);background:var(--cafe);color:var(--blanco);text-decoration:none;border-radius:40px;font-size:1.1rem}
+.btn:hover,.btn:focus-visible{background:var(--dorado);outline:2px solid var(--cafe);outline-offset:3px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.25rem}
+.tar{padding:1rem .4rem;border-radius:10px;background:var(--blanco);border:1px solid var(--beige);font-size:1rem;line-height:1.3}
+.tar i{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto .5rem;border:2px solid var(--dorado)}
+.tar b{display:block;font-size:1.15rem}
+.nina i{background:#F4B6C6}.nino i{background:#8FB8E8}.gem i{background:#C8323C}
+footer{margin-top:3rem;font-family:'Pinyon Script',cursive;font-size:1.8rem;color:var(--dorado)}
+@media(prefers-reduced-motion:reduce){.hero{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero" style="margin-top:0">
+  <p style="font-style:italic">Nuestra pequeña aventura está por revelarse... Acompáñanos a descubrir si será niño o niña.</p>
+  <img class="osito" src="osito.jpeg" alt="Osito con globos: Revelación de género">
+</section>
+
+<div class="oro"></div>
+
+<section style="margin-top:0">
+  <h2>Ya casi lo conocemos</h2>
+  <img class="eco" src="eco1.jpg" alt="Ecografía 3D del bebé">
+  <p>Cada día lo esperamos con más amor. Ya casi conocemos su carita...</p>
+  <img class="eco" src="eco2.jpg" alt="Segunda ecografía 3D del bebé">
+  <p>Te esperamos para celebrar con nosotros. ¡Elige tu color y ven a votar!</p>
+</section>
+
+<div class="oro"></div>
+
+<section class="datos" style="margin-top:0">
+  <h1 style="font-size:2.6rem;margin-top:0">Luis &amp; Laura</h1>
+  <div id="cuenta" aria-live="off"></div>
+  <p><b>Sábado 3 de octubre de 2026</b></p>
+  <p>Hora por confirmar</p>
+  <p>Condominio Costa Brava</p>
+  <a class="btn" href="https://maps.app.goo.gl/aP47hNkKcFfU7V9X7" target="_blank" rel="noopener">Cómo llegar</a>
+</section>
+
+<section>
+  <h2>Código de vestimenta</h2>
+  <p>Viste de blanco, crema o dorado, y suma el color de tu apuesta.</p>
+  <div class="trio">
+    <div class="tar nina"><i></i>Si crees que es niña<b>Rosado</b></div>
+    <div class="tar nino"><i></i>Si crees que es niño<b>Azul</b></div>
+    <div class="tar gem"><i></i>Si crees que son gemelos<b>Rojo</b></div>
+  </div>
+</section>
+
+<footer>¡Te esperamos!</footer>
+</main>
+<script>
+// Para cambiar la hora del evento, edita esta línea (formato AAAA-MM-DDTHH:MM)
+const EVENTO=new Date('2026-10-03T16:00:00');
+const c=document.getElementById('cuenta');
+function tick(){
+  let s=Math.max(0,Math.floor((EVENTO-new Date())/1000));
+  const v=[[Math.floor(s/86400),'días'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min'],[s%60,'seg']];
+  c.innerHTML=v.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
