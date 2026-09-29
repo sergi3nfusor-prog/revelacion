@@ -9,7 +9,7 @@
 <style>
 :root{--crema:#F7F0E6;--beige:#E9D8C2;--cafe:#6B4A3A;--dorado:#B8925A;--blanco:#FFFDF9}
 *{box-sizing:border-box;margin:0}
-body{background:var(--crema);color:var(--cafe);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;line-height:1.6;text-align:center;
+body{background:var(--crema);color:var(--cafe);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;line-height:1.6;text-align:center;font-variant-numeric:lining-nums;
 background-image:radial-gradient(circle at 20% 10%,#fff8ee 0,transparent 45%),radial-gradient(circle at 85% 60%,var(--beige) 0,transparent 40%)}
 main{max-width:520px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 h1,h2{font-family:'Pinyon Script',cursive;font-weight:400;color:var(--cafe);line-height:1.15}
@@ -30,11 +30,11 @@ section{margin-top:3rem}
 .datos p{margin-bottom:.4rem}
 .btn{display:inline-block;margin-top:1rem;padding:.7rem 1.8rem;border:1px solid var(--dorado);background:var(--cafe);color:var(--blanco);text-decoration:none;border-radius:40px;font-size:1.1rem}
 .btn:hover,.btn:focus-visible{background:var(--dorado);outline:2px solid var(--cafe);outline-offset:3px}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.25rem}
-.tar{padding:1rem .4rem;border-radius:10px;background:var(--blanco);border:1px solid var(--beige);font-size:1rem;line-height:1.3}
+.trio{display:flex;justify-content:center;gap:.9rem;margin-top:1.25rem}
+.tar{flex:0 1 150px;padding:1rem .5rem;border-radius:10px;background:var(--blanco);border:1px solid var(--beige);font-size:1rem;line-height:1.3;text-align:center}
 .tar i{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto .5rem;border:2px solid var(--dorado)}
 .tar b{display:block;font-size:1.15rem}
-.nina i{background:#F4B6C6}.nino i{background:#8FB8E8}.gem i{background:#C8323C}
+.nina i{background:#F4B6C6}.nino i{background:#8FB8E8}
 footer{margin-top:3rem;font-family:'Pinyon Script',cursive;font-size:1.8rem;color:var(--dorado)}
 @media(prefers-reduced-motion:reduce){.hero{animation:none}}
 </style>
@@ -50,7 +50,6 @@ footer{margin-top:3rem;font-family:'Pinyon Script',cursive;font-size:1.8rem;colo
 
 <section style="margin-top:0">
   <h2>Ya casi lo conocemos</h2>
-  <img class="eco" src="eco1.jpg" alt="Ecografía 3D del bebé">
   <p>Cada día lo esperamos con más amor. Ya casi conocemos su carita...</p>
   <img class="eco" src="eco2.jpg" alt="Segunda ecografía 3D del bebé">
   <p>Te esperamos para celebrar con nosotros. ¡Elige tu color y ven a votar!</p>
@@ -69,11 +68,9 @@ footer{margin-top:3rem;font-family:'Pinyon Script',cursive;font-size:1.8rem;colo
 
 <section>
   <h2>Código de vestimenta</h2>
-  <p>Viste de blanco, crema o dorado, y suma el color de tu apuesta.</p>
   <div class="trio">
     <div class="tar nina"><i></i>Si crees que es niña<b>Rosado</b></div>
     <div class="tar nino"><i></i>Si crees que es niño<b>Azul</b></div>
-    <div class="tar gem"><i></i>Si crees que son gemelos<b>Rojo</b></div>
   </div>
 </section>
 
