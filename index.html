@@ -20,7 +20,16 @@ section{margin-top:3rem}
 .oro{width:90px;height:1px;background:var(--dorado);margin:1.75rem auto;position:relative}
 .oro::after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);background:var(--crema);color:var(--dorado);padding:0 .6rem;font-size:.9rem}
 .osito{width:min(100%,360px);border-radius:180px 180px 24px 24px;border:1px solid var(--dorado);padding:8px;background:var(--blanco);display:block;margin:0 auto}
-.hero{animation:entra 1.4s ease both}
+body.abierto .hero{animation:entra 1.4s ease both}
+.hero{opacity:0}body.abierto .hero{opacity:1}
+#portada{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;background:var(--crema);background-image:radial-gradient(circle at 20% 10%,#fff8ee 0,transparent 45%),radial-gradient(circle at 85% 60%,var(--beige) 0,transparent 40%);transition:opacity .8s ease,visibility .8s}
+#portada.fuera{opacity:0;visibility:hidden}
+#portada h1{font-size:3rem;margin:.5rem 0 .25rem}
+#portada p{font-style:italic}
+#musica{position:fixed;right:1rem;bottom:1rem;z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--dorado);background:var(--blanco);color:var(--cafe);font-size:1.1rem;cursor:pointer;display:none}
+body.abierto #musica{display:block}
+#musica:focus-visible{outline:2px solid var(--cafe);outline-offset:3px}
+body:not(.abierto){overflow:hidden}
 @keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .eco{width:100%;max-width:340px;border:1px solid var(--dorado);padding:8px;background:var(--blanco);border-radius:6px;display:block;margin:0 auto 1.5rem}
 #cuenta{display:flex;justify-content:center;gap:.75rem;margin:1rem 0}
@@ -36,10 +45,18 @@ section{margin-top:3rem}
 .tar b{display:block;font-size:1.15rem}
 .nina i{background:#F4B6C6}.nino i{background:#8FB8E8}
 footer{margin-top:3rem;font-family:'Pinyon Script',cursive;font-size:1.8rem;color:var(--dorado)}
-@media(prefers-reduced-motion:reduce){.hero{animation:none}}
+@media(prefers-reduced-motion:reduce){body.abierto .hero{animation:none}}
 </style>
 </head>
 <body>
+<div id="portada">
+  <p>Revelación de género</p>
+  <h1>Luis &amp; Laura</h1>
+  <p style="margin-bottom:1.5rem">Te invitamos a descubrirlo con nosotros</p>
+  <button class="btn" id="abrir" style="cursor:pointer;font-family:inherit">Abrir invitación</button>
+</div>
+<button id="musica" aria-label="Pausar música" title="Música">♪</button>
+<audio id="audio" src="musica.mp3" loop preload="auto"></audio>
 <main>
 <section class="hero" style="margin-top:0">
   <p style="font-style:italic">Nuestra pequeña aventura está por revelarse... Acompáñanos a descubrir si será niño o niña.</p>
@@ -86,6 +103,17 @@ function tick(){
   c.innerHTML=v.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
 }
 tick();setInterval(tick,1000);
+
+const audio=document.getElementById('audio'),bm=document.getElementById('musica');
+document.getElementById('abrir').addEventListener('click',()=>{
+  document.body.classList.add('abierto');
+  document.getElementById('portada').classList.add('fuera');
+  audio.play().catch(()=>{});
+});
+bm.addEventListener('click',()=>{
+  if(audio.paused){audio.play().catch(()=>{});bm.textContent='♪';bm.setAttribute('aria-label','Pausar música')}
+  else{audio.pause();bm.textContent='✕';bm.setAttribute('aria-label','Activar música')}
+});
 </script>
 </body>
 </html>
